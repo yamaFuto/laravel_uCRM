@@ -15,10 +15,10 @@ const props = defineProps({
     onMounted(() => {
         props.items.forEach( item => {
         itemList.value.push({
-            id: item.id,
-            name: item.name,
-            price: item.price,
-            quantity: item.quantity
+            id: item.id, //item.item_id
+            name: item.name, //item.item_name
+            price: item.price, //item.item_price
+            quantity: item.quantity //item.quantity
         })
     })
 })

@@ -103,7 +103,7 @@ class PurchaseController extends Controller
         customer_name, status, created_at')
         ->get();
 
-        // dd($items, $order);
+        // dd($order, $items);
 
         return Inertia::render('purchases/show', [
            'items' => $items,
@@ -140,12 +140,16 @@ class PurchaseController extends Controller
             ]);
         }
 
+        // $items = Order::where('id', $purchase->id)
+        // ->get();
         // dd($items);
         $order = Order::groupBy('id')
         ->where('id', $purchase->id)
         ->selectRaw('id, customer_id,
         customer_name, status, created_at')
         ->get();
+
+        // dd($items, $order);
 
         return Inertia::render('purchases/edit', [
             'items' => $items,
